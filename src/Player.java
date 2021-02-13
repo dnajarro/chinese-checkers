@@ -1,6 +1,6 @@
 import java.util.*;
 
-// Class that
+// Class for getting information about each of the game pieces and the game board
 public class Player {
 
     public static final int ROWS = 17;
@@ -270,7 +270,7 @@ public class Player {
         return board[row][col] == EMPTYSPACE;
     }
 
-    // update the board with a give move
+    // update the board with a given move
     public static short[][] makeMove(short[][] board, Coordinate piece, Coordinate move, short playerNum) {
         short[][] newBoard = new short[ROWS][COLS];
         for (int row = 0; row < ROWS; row++) {
