@@ -16,6 +16,8 @@ public class Game {
     private final short PLAYERFOUR = 4;
     private final short PLAYERFIVE = 5;
     private final short PLAYERSIX = 6;
+    private final String HUMAN = "human";
+    private final String AI = "ai";
     private String player1type;
     private String player2type;
     private Map<Short, AI> players;
@@ -26,9 +28,9 @@ public class Game {
         this.player1type = player1type;
         this.player2type = player2type;
         players = new HashMap<>();
-        if (player1type.equals("ai"))
+        if (player1type.equals(AI))
             players.put((short)1, new AI((short)maxDepth));
-        if (player2type.equals("ai"))
+        if (player2type.equals(AI))
             players.put((short)2, new AI((short)maxDepth));
         initBoard();
 
@@ -320,22 +322,22 @@ public class Game {
 
     // each player chooses their move on their turn
     public void chooseMove(short playerNum) {
-        if (playerNum == 1) {
-            if (player1type.equals("human")) {
+        if (playerNum == PLAYERONE) {
+            if (player1type.equals(HUMAN)) {
                 System.out.println("PLAYER 1 turn (HUMAN):");
                 chooseHumanMove(playerNum);
             }
-            else if (player1type.equals("ai")) {
+            else if (player1type.equals(AI)) {
                 System.out.println("PLAYER 1 turn (AI):");
                 chooseAIMove(playerNum);
             }
         }
-        else if (playerNum == 2) {
-            if (player2type.equals("human")) {
+        else if (playerNum == PLAYERTWO) {
+            if (player2type.equals(HUMAN)) {
                 System.out.println("PLAYER 2 turn (HUMAN):");
                 chooseHumanMove(playerNum);
             }
-            else if (player2type.equals("ai")) {
+            else if (player2type.equals(AI)) {
                 System.out.println("PLAYER 2 turn (AI):");
                 chooseAIMove(playerNum);
             }
